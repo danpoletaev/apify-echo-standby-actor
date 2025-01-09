@@ -8,7 +8,7 @@ await Actor.init();
 
 // A simple HTTP server that responds with the request headers, method, body, and query parameters.
 const server = http.createServer(async (req, res) => {
-    const { headers, method, url } = req;
+    const { url } = req;
 
     if (url!.startsWith('/cookies/set')) {
         res.writeHead(301, { Location: '/cookies' });
