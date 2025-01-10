@@ -10,7 +10,7 @@ await Actor.init();
 const server = http.createServer(async (req, res) => {
     const { url, headers } = req;
 
-    log.info(`Request URL: ${url}`, { headers, method: req.method, url });
+    log.info(`Request URL: ${url}`, { headers, method: req.method, url, req });
 
     if (url!.startsWith('/cookies/set')) {
         res.writeHead(301, { Location: '/cookies' });
