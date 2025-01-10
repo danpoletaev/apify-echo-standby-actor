@@ -5,6 +5,8 @@ import { Actor, log } from 'apify';
 // The init() call configures the Actor for its environment. It's recommended to start every Actor with an init()
 await Actor.init();
 
+log.info('ENV', Actor.getEnv());
+log.info('Config', Actor.config);
 
 // A simple HTTP server that responds with the request headers, method, body, and query parameters.
 const server = http.createServer(async (req, res) => {
