@@ -7,6 +7,8 @@ await Actor.init();
 
 log.info('ENV', Actor.getEnv());
 log.info('Config', Actor.config);
+log.info('RUN_ID', {runId: Actor.getEnv()?.actorRunId});
+log.info('RUN_ID_ENV:', {runId: process?.env?.ACTOR_RUN_ID});
 
 // A simple HTTP server that responds with the request headers, method, body, and query parameters.
 const server = http.createServer(async (req, res) => {
