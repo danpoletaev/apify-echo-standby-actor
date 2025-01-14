@@ -15,6 +15,8 @@ const server = http.createServer(async (req, res) => {
     const { url, headers } = req;
 
     log.info(`Request URL: ${url}`, { headers, method: req.method, url, req });
+    // @ts-expect-error - token is not defined in the Request type
+    log.info(`Request ID:`, { token: req?.token });
 
     if (url!.startsWith('/cookies/set')) {
         res.writeHead(301, { Location: '/cookies' });
