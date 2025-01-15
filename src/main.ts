@@ -32,6 +32,12 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
+    if (url!.startsWith('/outside-redirect')) {
+        res.writeHead(301, { Location: 'https://www.google.com/' });
+        res.end();
+        return;
+    }
+
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
         message: "Default route",
