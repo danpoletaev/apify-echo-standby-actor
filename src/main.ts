@@ -24,6 +24,12 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
+    if (url!.startsWith('/query-redirect')) {
+        res.writeHead(301, { Location: '/cookies?query=value' });
+        res.end();
+        return;
+    }
+
     if (url!.startsWith('/cookies')) {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({
